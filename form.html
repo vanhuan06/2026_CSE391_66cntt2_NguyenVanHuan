@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h2>Employee Information Form</h2>
+
+<form>
+
+    <fieldset>
+        <legend>Basic Info</legend>
+
+        Employee ID:<br>
+        <input type="text" name="empid"><br><br>
+
+        Last Name:<br>
+        <input type="text" name="lastname"><br><br>
+
+        First Name:<br>
+        <input type="text" name="firstname"><br><br>
+
+        Gender:<br>
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+        <input type="radio" name="gender"> xxx
+        <input type="radio" name="gender"> zzz<br><br>
+
+        suffix:<br>
+        <input type="text" name="suffix"><br><br>
+
+        Title:<br>
+        <input type="text" name="title"><br><br>
+
+        Birthdate:<br>
+        <input type="date" name="birthdate"><br><br>
+
+        Hiredate:<br>
+        <input type="date" name="hiredate"><br><br>
+
+        SSN:<br>
+        <input type="text" name="ssn"><br><br>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Contact Info</legend>
+
+        Email:<br>
+        <input type="email" name="email"><br><br>
+
+        Address:<br>
+        <input type="text" name="address"><br><br>
+
+        City:<br>
+        <input type="text" name="city"><br><br>
+
+        Region:<br>
+        <input type="text" name="region"><br><br>
+
+        Postal Code:<br>
+        <input type="text" name="postal"><br><br>
+
+        Country:<br>
+        <input type="text" name="country"><br><br>
+
+        US Home Phone:<br>
+        <input type="text" name="phone"><br><br>
+
+        Reports To:<br>
+        <select>
+            <option value="1">Buchanan</option>
+            <option value="2">Fuller</option>
+            <option value="3">King</option>
+        </select><br><br>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Optional Info</legend>
+
+        Photo:<br>
+        <input type="file" name="photo"><br><br>
+
+        Notes:<br>
+        <textarea name="notes" rows="5" cols="40"></textarea><br><br>
+
+        Are you human?<br>
+        <input type="checkbox" name="human"> Yes<br><br>
+
+        Active?<br>
+        <input type="checkbox" name="active"> Active<br><br>
+
+        Preferred Shift:<br>
+        <input type="checkbox" name="shift1"> Regular<br>
+        <input type="checkbox" name="shift2"> Graveyard<br><br>
+    </fieldset>
+
+    <br>
+
+    <button type="submit">Submit</button>
+    <button type="reset">Cancel</button>
+
+  </form>
+</body>
+</html>
