@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+</head>
+<body>
+<h2>Employee Information Form</h2>
+<form>
+    <fieldset>
+        <legend>Basic Info</legend>
+        <table>
+            <tr>
+                <td>Employee ID</td>
+                <td><input type="text" name="empid"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="lastname"></td>
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="firstname"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="gender"> Male<br>
+                    <input type="radio" name="gender"> Female<br>
+                    <input type="radio" name="gender"> xxx<br>
+                    <input type="radio" name="gender"> zzz
+                </td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td><input type="text" name="title"></td>
+            </tr>
+            <tr>
+                <td>Suffix</td>
+                <td><input type="text" name="suffix"></td>
+            </tr>
+            <tr>
+                <td>BirthDate</td>
+                <td><input type="text" placeholder="BirthDate"></td>
+            </tr>
+            <tr>
+                <td>HireDate</td>
+                <td><input type="date" name="hireDate"></td>
+            </tr>
+            <tr>
+                <td>SSN # (if applicable)</td>
+                <td><input type="text" name="ssn"></td>
+            </tr>
+            <tr>
+                <td>Reports To</td>
+                <td>
+                    <select>
+                        <option value="1">Buchanan</option>
+                        <option value="2">Fuller</option>
+                        <option value="3">King</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Contact Info</legend>
+        <table>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" name="address"></td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td><input type="text" name="city"></td>
+            </tr>
+            <tr>
+                <td>Region</td>
+                <td><input type="text" name="region"></td>
+            </tr>
+            <tr>
+                <td>Postal Code</td>
+                <td><input type="text" name="postal"></td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td><input type="text" name="country"></td>
+            </tr>
+            <tr>
+                <td>US Home Phone</td>
+                <td><input type="text" name="phone"></td>
+            </tr>
+            <tr>
+                <td>Photo</td>
+                <td><input type="file" name="photo"></td>
+            </tr>
+        </table>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Optional Info</legend>
+        <table>
+            <tr>
+                <td>Notes</td>
+                <td><textarea name="notes" rows="4" cols="50"></textarea></td>
+            </tr>
+            <tr>
+                <td>Preferred Shift</td>
+                <td>
+                    <input type="checkbox" name="shift1"> Regular<br>
+                    <input type="checkbox" name="shift2"  > Graveyard
+                </td>
+            </tr>
+            <tr>
+                <td>Active?</td>
+                <td><input type="checkbox" name="active"> Active</td>
+            </tr>
+            <tr>
+                <td>Are you human?</td>
+                <td>
+                    click to change<br>
+                    <textarea name="human" rows="3" cols="50"></textarea>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <br>
+    <button type="submit">Submit</button>
+    <button type="reset">Cancel</button>
+</form>
+</body>
+</html>
