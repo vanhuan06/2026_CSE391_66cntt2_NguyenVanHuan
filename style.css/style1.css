@@ -7,6 +7,12 @@
     display: flex;
     gap: 20px; 
 }
+#main-header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
 .card {
     width: calc(33.33% - 20px);  
     display: inline-block;       
@@ -26,7 +32,23 @@
     text-decoration: none;
     border-radius: 4px;
 }
+nav {
+    display: flex;
+    justify-content: flex-start;   /* ⬅ Menu nằm bên trái */
+    align-items: center;
+    gap: 20px;
+    background: #f8f9fa;
+    padding: 15px 20px;
+}
 
+nav a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+}
+nav a:hover {
+    color: #0056b3;
+}
 .btn:hover {
     background: #0056b3;
 }

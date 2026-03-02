@@ -1,0 +1,115 @@
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial;
+    background-color: #f5f5f5;
+}
+
+/* HEADER */
+#main-header{
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* NAV LEFT */
+nav {
+    display: flex;
+    justify-content: flex-start;     /* ✔ menu nằm mé trái */
+    align-items: center;
+    gap: 20px;
+    background: #f8f9fa;
+    padding: 15px 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #0056b3;
+}
+
+/* POSTS (GIỮ Y NHƯ CŨ CHỈ THÊM VIỀN + BÓNG) */
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.card {
+    flex: 0 0 calc(33.33% - 20px);
+    background: white;
+    border: 1px solid #ddd;            /* ✔ thêm viền */
+    border-radius: 8px;                /* ✔ bo góc */
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);   /* ✔ bóng */
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card a {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.card a:hover {
+    background: #0056b3;
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.item {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    font-size: 2rem;
+    border-radius: 8px;
+}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;   /* ✔ menu vẫn bên trái */
+    }
+
+    .posts {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        flex: 1 1 100%;
+        max-width: 500px;
+    }
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
