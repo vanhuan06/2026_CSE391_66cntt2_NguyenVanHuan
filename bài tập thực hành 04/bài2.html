@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Đăng Ký</title>
+
+<style>
+body{
+    font-family: Arial;
+    margin:40px;
+}
+
+form{
+    width:400px;
+}
+
+input, select{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+}
+
+button{
+    margin-top:15px;
+    padding:10px;
+}
+
+.error{
+    color:red;
+    font-size:14px;
+}
+
+.success{
+    font-size:20px;
+    color:rgb(88, 12, 240);
+}
+</style>
+
+</head>
+<body>
+
+<h2>Đăng Ký</h2>
+
+<form id="registerForm">
+
+<label>Họ và tên</label>
+<input type="text" id="fullname">
+<div class="error" id="fullnameError"></div>
+
+<label>Email</label>
+<input type="text" id="email">
+<div class="error" id="emailError"></div>
+
+<label>Số điện thoại</label>
+<input type="text" id="phone">
+<div class="error" id="phoneError"></div>
+
+<label>Mật khẩu</label>
+<input type="password" id="password">
+<div class="error" id="passwordError"></div>
+
+<label>Xác nhận lại mật khẩu</label>
+<input type="password" id="confirmPassword">
+<div class="error" id="confirmPasswordError"></div>
+
+<label>Giới tính</label><br>
+<input type="radio" name="gender" value="Nam"> Nam
+<input type="radio" name="gender" value="Nữ"> Nữ
+<div class="error" id="genderError"></div>
+
+<br><br>
+
+<input type="checkbox" id="terms"> Tôi đồng ý điều khoản
+<div class="error" id="termsError"></div>
+
+<button type="submit">Đăng ký</button>
+
+</form>
+
+<div id="successMessage" class="success"></div>
+
+<script>
+
+function showError(id,message){
+    document.getElementById(id+"Error").innerText = message;
+}
+
+function clearError(id){
+    document.getElementById(id+"Error").innerText = "";
+}
+
+function validateFullname(){
+    let name = document.getElementById("fullname").value.trim();
+    let regex = /^[A-Za-zÀ-ỹ\s]+$/;
+
+    if(name === ""){
+        showError("fullname","vui lòng nhập họ tên!");
+        return false;
+    }
+
+    if(name.length < 3){
+        showError("fullname","Chứa ít nhất 3 ký tự!");
+        return false;
+    }
+
+    if(!regex.test(name)){
+        showError("fullname","Chỉ chứa chữ cái và khoảng trắng!");
+        return false;
+    }
+
+    clearError("fullname");
+    return true;
+}
+
+function validateEmail(){
+    let email = document.getElementById("email").value.trim();
+    let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(email === ""){
+        showError("email","vui lòng nhập email hợp lệ!");
+        return false;
+    }
+
+    if(!regex.test(email)){
+        showError("email","Email không hợp lệ!");
+        return false;
+    }
+
+    clearError("email");
+    return true;
+}
+
+function validatePhone(){
+    let phone = document.getElementById("phone").value.trim();
+    let regex = /^0\d{9}$/;
+
+    if(phone === ""){
+        showError("phone","vui lòng nhập số điện thoại!");
+        return false;
+    }
+
+    if(!regex.test(phone)){
+        showError("phone","Số điện thoại phải 10 số và bắt đầu bằng 0!");
+        return false;
+    }
+
+    clearError("phone");
+    return true;
+}
+
+function validatePassword(){
+    let pass = document.getElementById("password").value;
+    let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+    if(pass === ""){
+        showError("password","vui lòng nhập mật khẩu!");
+        return false;
+    }
+
+    if(!regex.test(pass)){
+        showError("password","Ít nhất 8 ký tự, có chữ hoa, chữ thường và số!");
+        return false;
+    }
+
+    clearError("password");
+    return true;
+}
+
+function validateConfirmPassword(){
+    let pass = document.getElementById("password").value;
+    let confirm = document.getElementById("confirmPassword").value;
+
+    if(confirm !== pass){
+        showError("confirmPassword","Mật khẩu không khớp!");
+        return false;
+    }
+
+    clearError("confirmPassword");
+    return true;
+}
+
+function validateGender(){
+    let genders = document.getElementsByName("gender");
+
+    for(let g of genders){
+        if(g.checked){
+            clearError("gender");
+            return true;
+        }
+    }
+
+    showError("gender","Vui lòng chọn giới tính !");
+    return false;
+}
+
+function validateTerms(){
+    let terms = document.getElementById("terms");
+
+    if(!terms.checked){
+        showError("terms","Bạn phải đồng ý điều khoản");
+        return false;
+    }
+
+    clearError("terms");
+    return true;
+}
+
+document.getElementById("fullname").addEventListener("blur",validateFullname);
+document.getElementById("email").addEventListener("blur",validateEmail);
+document.getElementById("phone").addEventListener("blur",validatePhone);
+document.getElementById("password").addEventListener("blur",validatePassword);
+document.getElementById("confirmPassword").addEventListener("blur",validateConfirmPassword);
+
+document.querySelectorAll("input").forEach(input=>{
+    input.addEventListener("input",function(){
+        let id = this.id;
+        if(id) clearError(id);
+    });
+});
+
+document.getElementById("registerForm").addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    let valid =
+        validateFullname() &
+        validateEmail() &
+        validatePhone() &
+        validatePassword() &
+        validateConfirmPassword() &
+        validateGender() &
+        validateTerms();
+
+    if(valid){
+
+        let name = document.getElementById("fullname").value;
+
+        document.getElementById("registerForm").style.display="none";
+
+        document.getElementById("successMessage").innerText =
+        "Đăng ký thành công! 🎉 Xin chào "+name;
+    }
+
+});
+
+</script>
+
+</body>
+</html>
